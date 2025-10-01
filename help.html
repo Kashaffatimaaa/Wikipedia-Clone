@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help - Wikipedia Clone</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      <img src="images/logo.png" alt="Wikipedia Logo">
+      <h1>Wikipedia Clone</h1>
+    </div>
+    <div class="search-bar">
+      <form id="searchForm">
+        <input type="text" id="searchInput" placeholder="Search Wikipedia...">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+  </header>
+
+  <!-- NAVBAR -->
+  <nav class="top-nav">
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+    <ul>
+      <li><a href="index.html">Main Page</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="help.html" class="active">Help</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">Random</a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+    <article>
+      <h2>Help & Support</h2>
+      <p>This page provides guidance on how to use the <strong>Wikipedia Clone</strong>.  
+      Since this is a student project, features are simplified but still modeled after the real Wikipedia.</p>
+
+      <h3>How to Search</h3>
+      <p>Use the search bar at the top to find Wikipedia articles. If the article exists, it opens directly; otherwise, you’ll be redirected to Wikipedia’s search results.</p>
+
+      <h3>Navigation</h3>
+      <ul>
+        <li><strong>Main Page</strong> — Overview of Wikipedia Clone</li>
+        <li><strong>About</strong> — Information about the project & contributor</li>
+        <li><strong>Help</strong> — This page (guidance and FAQs)</li>
+      </ul>
+
+      <h3>FAQs</h3>
+      <table>
+        <tr>
+          <th>Question</th>
+          <th>Answer</th>
+        </tr>
+        <tr>
+          <td>Who created this project?</td>
+          <td>Kashaf Fatima</td>
+        </tr>
+        <tr>
+          <td>What was used to build it?</td>
+          <td>Only HTML & CSS (no frameworks)</td>
+        </tr>
+        <tr>
+          <td>Is this the real Wikipedia?</td>
+          <td>No, this is a <em>clone project</em> for academic purposes.</td>
+        </tr>
+      </table>
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>&copy; 2025 Wikipedia Clone | Made by Kashaf Fatima</p>
+  </footer>
+
+  <!-- SEARCH SCRIPT -->
+  <script>
+    document.getElementById("searchForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const query = document.getElementById("searchInput").value.trim();
+      if(query) {
+        const url = `https://en.wikipedia.org/wiki/${encodeURIComponent(query)}`;
+        window.open(url, "_blank");
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wikipedia Clone</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- MARQUEE ANNOUNCEMENT -->
+  <marquee behavior="scroll" direction="left" scrollamount="5" class="announcement">
+    Welcome to the Wikipedia Clone Project — Built with only HTML & CSS by Kashaf Fatima 🎓
+  </marquee>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      <img src="images/logo.png" alt="Wikipedia Logo">
+      <h1>Wikipedia Clone</h1>
+    </div>
+    <div class="search-bar">
+      <form id="searchForm">
+        <input type="text" id="searchInput" placeholder="Search Wikipedia...">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+  </header>
+
+  <!-- NAVBAR -->
+  <nav class="top-nav">
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+    <ul>
+      <li><a href="index.html" class="active">Main Page</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">Random</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Help:Contents" target="_blank">Help</a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN LAYOUT -->
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <h2>Contents</h2>
+      <ul>
+        <li><a href="#history">1. History</a></li>
+        <li><a href="#features">2. Features</a></li>
+        <li><a href="#impact">3. Impact</a></li>
+        <li><a href="#see-also">4. See Also</a></li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+      <article>
+        <h2 id="history">History</h2>
+        <p>Wikipedia was launched in 2001 as a free, web-based, collaborative, multilingual encyclopedia project supported by the Wikimedia Foundation. It is one of the largest reference websites on the internet.</p>
+
+        <h2 id="features">Features</h2>
+        <p>Wikipedia uses collaborative editing, allowing millions of people worldwide to contribute articles. It is powered by the MediaWiki software.</p>
+
+        <h2 id="impact">Impact</h2>
+        <p>Wikipedia has profoundly impacted the way people access and share knowledge, offering free access to information across multiple languages.</p>
+
+        <h2 id="see-also">See Also</h2>
+        <ul>
+          <li><a href="https://foundation.wikimedia.org/" target="_blank">Wikimedia Foundation</a></li>
+          <li><a href="https://okfn.org/" target="_blank">Open Knowledge Foundation</a></li>
+        </ul>
+
+        <!-- Example Table -->
+        <table>
+          <tr>
+            <th>Year</th>
+            <th>Milestone</th>
+          </tr>
+          <tr>
+            <td>2001</td>
+            <td>Wikipedia founded</td>
+          </tr>
+          <tr>
+            <td>2010</td>
+            <td>Reached 1 million articles in English</td>
+          </tr>
+        </table>
+      </article>
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>&copy; 2025 Wikipedia Clone | Made with HTML & CSS by Kashaf Fatima</p>
+  </footer>
+
+  <!-- SEARCH SCRIPT -->
+  <script>
+    document.getElementById("searchForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const query = document.getElementById("searchInput").value.trim();
+
+      if (query) {
+        const articleUrl = `https://en.wikipedia.org/wiki/${encodeURIComponent(query)}`;
+        const searchUrl = `https://en.wikipedia.org/wiki/Special:Search?search=${encodeURIComponent(query)}`;
+
+        // Try fetching the article page
+        fetch(articleUrl, { method: "HEAD" })
+          .then(response => {
+            if (response.ok) {
+              window.open(articleUrl, "_blank");
+            } else {
+              window.open(searchUrl, "_blank");
+            }
+          })
+          .catch(() => {
+            // Fallback to search page if fetch fails
+            window.open(searchUrl, "_blank");
+          });
+      }
+    });
+  </script>
+
+</body>
+</html>

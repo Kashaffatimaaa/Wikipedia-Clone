@@ -1,5 +1,3 @@
-# Wikipedia-Clone
-
 # Wikipedia Clone
 
 A responsive Wikipedia-inspired website built using **HTML** and **CSS** by **Kashaf Fatima** as part of the SEL-310 Web Engineering course.
